@@ -23,7 +23,7 @@ class BotAccount {
             buffer.close()
 
             Logger.info("Created BotAccount.json file.")
-            Logger.info("Shutdown discord bot. Please enter the token, then start again.")
+            Logger.info("Bot has been terminated. Please enter the token and restart.")
             System.exit(0);
         }
 
