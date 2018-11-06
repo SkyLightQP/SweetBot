@@ -24,6 +24,7 @@ class BotAccount {
 
             Logger.info("Created BotAccount.json file.")
             Logger.info("Shutdown discord bot. Please enter the token, then start again.")
+            System.exit(0);
         }
 
         botAccountGson = gson.fromJson(file.reader(), BotAccountData().javaClass)
