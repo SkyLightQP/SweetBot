@@ -23,11 +23,12 @@ class MessageListener : ListenerAdapter() {
         if(event.author.isBot) return
 
         val chat = event.message.contentRaw
+        val args = chat.substring(1).split(' ')
         if(chat.startsWith(handler.COMMAND_PREFIX)) {
-            val nameOrAlias = chat.replace(handler.COMMAND_PREFIX, "")
-            val command = handler.get(nameOrAlias)
+            val lable = args[0].replace(handler.COMMAND_PREFIX, "")
+            val command = handler.get(lable)
             try {
-                command!!.execute(arrayOf(""), event)
+                command!!.execute(args, event)
             } catch (ex: KotlinNullPointerException){
 
             }

@@ -6,5 +6,5 @@ interface ICommand {
     var name: String
     var alias: Array<String>
 
-    fun execute(args: Array<String>, event: MessageReceivedEvent)
+    fun execute(args: List<String>, event: MessageReceivedEvent)
 }

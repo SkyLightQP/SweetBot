@@ -8,7 +8,7 @@ class PingCommand : ICommand {
     override var name: String = "핑"
     override var alias: Array<String> = arrayOf("ping")
 
-    override fun execute(args: Array<String>, event: MessageReceivedEvent) {
+    override fun execute(args: List<String>, event: MessageReceivedEvent) {
         val startTime = System.currentTimeMillis() / 1000
         val channel = event.channel
 
