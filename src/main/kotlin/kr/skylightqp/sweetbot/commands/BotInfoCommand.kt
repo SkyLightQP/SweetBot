@@ -14,7 +14,7 @@ class BotInfoCommand : ICommand {
         val channel = event.channel
 
         val eb = EmbedBuilder()
-                .setTitle("달콤한 봇")
+                .setTitle("달콤한 봇 - 정보")
                 .setDescription("각종 기능들이 추가된 달콤한 봇을 디스코드에서 써보세요!")
                 .addBlankField(false)
                 .addField("제작자","하늘빛QP(SkyLightQP)",true)
