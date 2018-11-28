@@ -2,14 +2,16 @@ package kr.skylightqp.sweetbot.json
 
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import kr.skylightqp.sweetbot.Logger
-import kr.skylightqp.sweetbot.json.data.BotAccountData
+import kr.skylightqp.sweetbot.utils.Logger
+import kr.skylightqp.sweetbot.json.data.BotSettingData
 import java.io.File
 
-class BotAccount {
+class BotSetting {
     val gson = Gson()
-    lateinit var botAccountGson: BotAccountData
-    val file = File("BotAccount.json")
+    companion object {
+        lateinit var botSettingGson: BotSettingData
+    }
+    val file = File("BotSetting.json")
 
     fun load() {
         if (!file.exists()) {
@@ -17,16 +19,18 @@ class BotAccount {
 
             val jsonObject = JsonObject()
             jsonObject.addProperty("token", "")
+            jsonObject.addProperty("weather_api_key", "")
 
             val buffer = file.bufferedWriter()
             buffer.write(gson.toJson(jsonObject))
             buffer.close()
 
-            Logger.info("Created BotAccount.json file.")
+            Logger.info("Created BotSetting.json file.")
             Logger.info("Bot has been terminated. Please enter the token and restart.")
             System.exit(0);
         }
 
-        botAccountGson = gson.fromJson(file.reader(), BotAccountData().javaClass)
+        Logger.info("BotSetting.json was loaded successfully.")
+        botSettingGson = gson.fromJson(file.reader(), BotSettingData().javaClass)
     }
 }

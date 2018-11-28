@@ -6,5 +6,6 @@ class CommandLoad {
     constructor(){
         handler.addCommand(BotInfoCommand())
         handler.addCommand(PingCommand())
+        handler.addCommand(WeatherCommand())
     }
 }

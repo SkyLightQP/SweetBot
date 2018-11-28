@@ -1,6 +1,6 @@
 package kr.skylightqp.sweetbot.listener
 
-import kr.skylightqp.sweetbot.Logger
+import kr.skylightqp.sweetbot.utils.Logger
 import kr.skylightqp.sweetbot.commands.CommandHandler
 import net.dv8tion.jda.core.entities.ChannelType
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
@@ -23,12 +23,11 @@ class MessageListener : ListenerAdapter() {
         if(event.author.isBot) return
 
         val chat = event.message.contentRaw
-        val args = chat.substring(1).split(' ')
         if(chat.startsWith(handler.COMMAND_PREFIX)) {
-            val lable = args[0].replace(handler.COMMAND_PREFIX, "")
-            val command = handler.get(lable)
+            val args = chat.substring(1).split(' ')
+            val command = handler.get(args[0])
             try {
-                command!!.execute(args, event)
+                command!!.execute(args.toTypedArray(), event)
             } catch (ex: KotlinNullPointerException){
 
             }

@@ -10,7 +10,7 @@ class BotInfoCommand : ICommand {
     override var name: String = "정보"
     override var alias: Array<String> = arrayOf("info")
 
-    override fun execute(args: List<String>, event: MessageReceivedEvent) {
+    override fun execute(args: Array<String>, event: MessageReceivedEvent) {
         val channel = event.channel
 
         val eb = EmbedBuilder()

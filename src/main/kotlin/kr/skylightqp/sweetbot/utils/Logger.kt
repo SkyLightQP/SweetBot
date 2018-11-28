@@ -1,4 +1,4 @@
-package kr.skylightqp.sweetbot
+package kr.skylightqp.sweetbot.utils
 
 import org.slf4j.LoggerFactory
 
