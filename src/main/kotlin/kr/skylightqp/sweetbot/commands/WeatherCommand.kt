@@ -4,6 +4,8 @@ import com.google.gson.Gson
 import kr.skylightqp.sweetbot.json.data.WeatherData
 import kr.skylightqp.sweetbot.requests.WeatherRequest
 import kr.skylightqp.sweetbot.utils.CityName
+import kr.skylightqp.sweetbot.utils.Logger
+import kr.skylightqp.sweetbot.utils.WeatherStatus
 import net.dv8tion.jda.core.EmbedBuilder
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 import java.awt.Color
@@ -38,13 +40,15 @@ class WeatherCommand : ICommand {
         val temp = data.main.temperature.toDouble() - 273.15
         val format = DecimalFormat(".##")
         val editedTemp = format.format(temp)
+        val weatherStatus = data.weather[0].main.toUpperCase()
 
-        val eb = EmbedBuilder()
+       val eb = EmbedBuilder()
                 .setColor(Color(95, 135, 243))
                 .setTitle("${args[1]}의 날씨는...")
-                .addField("기온", editedTemp, true)
-                .addField("습도", data.main.humidity, true)
-                .addField("풍속", data.wind.windSpeed, true)
+                .addField("현재 날씨", WeatherStatus.valueOf(weatherStatus).toString(), true)
+                .addField("기온", "$editedTemp ℃", true)
+                .addField("습도", "${data.main.humidity} %", true)
+                .addField("풍속", "${data.wind.windSpeed} ㎧", true)
                 .addField("풍향", data.wind.windDegrees, true)
         channel.sendMessage(eb.build()).queue()
     }

@@ -4,5 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherData(
         @SerializedName("main") val main: WeatherMainData = WeatherMainData(),
-        @SerializedName("wind") val wind: WeatherWindData = WeatherWindData()
+        @SerializedName("wind") val wind: WeatherWindData = WeatherWindData(),
+        @SerializedName("weather") val weather: List<WeatherStatusData> = listOf(WeatherStatusData())
 )
