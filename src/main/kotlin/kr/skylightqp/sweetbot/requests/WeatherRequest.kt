@@ -9,7 +9,7 @@ class WeatherRequest {
     fun getLocalWeather(cityName: CityName): String{
         val botSetting = BotSetting()
         val api = BotSetting.botSettingGson.weatherApiKey
-        val url = "http://api.openweathermap.org/data/2.5/weather?appid=$api&q=$cityName"
+        val url = "http://api.openweathermap.org/data/2.5/weather?appid=$api&q=$cityName,KR"
         val response = URL(url)
                 .openStream()
                 .bufferedReader()

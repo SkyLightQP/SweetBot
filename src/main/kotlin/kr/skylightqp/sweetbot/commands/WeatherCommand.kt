@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import kr.skylightqp.sweetbot.json.data.WeatherData
 import kr.skylightqp.sweetbot.requests.WeatherRequest
 import kr.skylightqp.sweetbot.utils.CityName
+import kr.skylightqp.sweetbot.utils.Logger
 import kr.skylightqp.sweetbot.utils.WeatherStatus
 import net.dv8tion.jda.core.EmbedBuilder
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
@@ -24,7 +25,7 @@ class WeatherCommand : ICommand {
                     .setTitle("날씨 도움말")
                     .setDescription("~날씨 <지역이름>\n" +
                             "아래의 지역 이름으로 검색할 수 있습니다. \n\n" +
-                            "서울, 인천, 부산, 청주")
+                            "서울, 인천, 청주, 춘천, 대전, 대구, 부산, 전주, 광주, 제주")
 
             channel.sendMessage(eb.build()).queue()
             return
@@ -38,7 +39,7 @@ class WeatherCommand : ICommand {
         val data: WeatherData = gson.fromJson(weatherRequest.getLocalWeather(cityName!!), WeatherData().javaClass)
 
         val temp = data.main.temperature.toDouble() - 273.15
-        val format = DecimalFormat(".##")
+        val format = DecimalFormat("####.##")
         val editedTemp = format.format(temp)
         val weatherStatus = data.weather[0].main.toUpperCase()
 
