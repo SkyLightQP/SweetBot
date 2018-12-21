@@ -1,7 +1,6 @@
 package kr.skylightqp.sweetbot
 
 import kr.skylightqp.sweetbot.commands.CommandLoad
-import kr.skylightqp.sweetbot.json.BotSetting
 import kr.skylightqp.sweetbot.listener.MessageListener
 import net.dv8tion.jda.core.JDABuilder
 

@@ -1,7 +1,7 @@
 package kr.skylightqp.sweetbot.requests
 
 
-import kr.skylightqp.sweetbot.json.BotSetting
+import kr.skylightqp.sweetbot.BotSetting
 import kr.skylightqp.sweetbot.utils.CityName
 import java.net.URL
 
