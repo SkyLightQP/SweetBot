@@ -1,8 +1,6 @@
 package kr.skylightqp.sweetbot.commands
 
-import net.dv8tion.jda.core.hooks.ListenerAdapter
-
-class CommandHandler : ListenerAdapter() {
+class CommandHandler{
     val COMMAND_PREFIX: String = "~"
 
     companion object {
