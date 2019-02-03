@@ -19,6 +19,8 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.2.3'
 
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    implementation 'khttp:khttp:0.1.0'
 }
 
 compileKotlin {

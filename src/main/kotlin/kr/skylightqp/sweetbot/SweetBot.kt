@@ -10,6 +10,6 @@ fun main(args: Array<String>) {
 
     CommandLoad()
 
-    val jda = JDABuilder(BotSetting.botSettingGson.discordToken).build()
+    val jda = JDABuilder(BotSetting.data.discordToken).build()
     jda.addEventListener(MessageListener())
 }

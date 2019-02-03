@@ -8,10 +8,12 @@ import java.io.File
 
 class BotSetting {
     val gson = Gson()
+
     companion object {
-        lateinit var botSettingGson: BotSettingData
+        lateinit var data: BotSettingData
     }
-    val file = File("BotSetting.json")
+
+    val file = File("config.json")
 
     fun load() {
         if (!file.exists()) {
@@ -20,17 +22,20 @@ class BotSetting {
             val jsonObject = JsonObject()
             jsonObject.addProperty("token", "")
             jsonObject.addProperty("weather_api_key", "")
+            jsonObject.addProperty("naver_api_client", "")
+            jsonObject.addProperty("naver_api_secret", "")
+            jsonObject.addProperty("wolframalpha_api_key", "")
 
             val buffer = file.bufferedWriter()
             buffer.write(gson.toJson(jsonObject))
             buffer.close()
 
-            Logger.info("Created BotSetting.json file.")
+            Logger.info("Created config.json file.")
             Logger.info("Bot has been terminated. Please enter the token and restart.")
             System.exit(0);
         }
 
-        Logger.info("BotSetting.json was loaded successfully.")
-        botSettingGson = gson.fromJson(file.reader(), BotSettingData().javaClass)
+        data = gson.fromJson(file.reader(), BotSettingData().javaClass)
+        Logger.info("config.json was loaded successfully.")
     }
 }

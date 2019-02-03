@@ -2,7 +2,7 @@
 .idea
 out
 
-BotSetting.json
+config.json
 
 logo.png
 logo.psd

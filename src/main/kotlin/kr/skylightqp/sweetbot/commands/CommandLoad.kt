@@ -8,5 +8,6 @@ class CommandLoad {
         handler.addCommand(PingCommand())
         handler.addCommand(WeatherCommand())
         handler.addCommand(HelpCommand())
+        handler.addCommand(CalculatorCommand())
     }
 }
